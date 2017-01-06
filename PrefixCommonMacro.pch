@@ -1,0 +1,23 @@
+//
+//  PrefixCommonMacro.pch
+//  ELNetWork
+//
+//  Created by Eleven on 17/1/5.
+//  Copyright © 2017年 Eleven. All rights reserved.
+//
+
+#ifndef PrefixCommonMacro_pch
+#define PrefixCommonMacro_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixCommonMacro_pch */
+
+#define TYPESECURITYCHECK(x,y) x&&((NSNull *)x!=[NSNull null])&&[x isKindOfClass:y]
+
+#define NETWORKCONNECTTIMEOUT 60.0f
+
+#define CACHECOUNTLIMIT 50
+
+
