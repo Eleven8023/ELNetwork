@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+#import "HttpNetModule.h"
+
+@interface ViewController ()<HTTPResponseDelegate>
 
 @end
 
@@ -16,7 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HttpNetModule *model = [[HttpNetModule alloc] init];
+    model.httpResponseDelegate = self;
+    [model getSmsCodeForRegisterCode:@"13934567890"];
     // Do any additional setup after loading the view, typically from a nib.
+}
+#pragma mark -- 模块业务的代理方法
+- (void)processHttpResponseData:(NSString *)nssRequestCode status:(int)iStatus message:(NSString *)nssMsg data:(id)data{
+    if (iStatus == 200) {
+        
+    }else if (iStatus == -1000){
+        
+    }else{
+        
+    }
 }
 
 

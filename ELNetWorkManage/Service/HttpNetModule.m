@@ -148,7 +148,6 @@
                     NSData *cacheData = [NSJSONSerialization dataWithJSONObject:responseDic options:NSJSONWritingPrettyPrinted error:nil];
                     [weekSelf.cache saveCacheWithData:cacheData methodName:[params objectForKey:@"action"] requestParams:dicForRequest];
                 }
-                
                 int iStatus = [[responseDic objectForKey:@"status"] intValue];
                 NSString * nssRequestCode = [responseDic objectForKey:@"code"];
                 NSString * nssMsg = [responseDic objectForKey:@"msg"];
@@ -160,7 +159,6 @@
                     [weekSelf.httpResponseDelegate processHttpResponseData:nssRequestCode status:iStatus message:nssMsg data:data];
                 }
                 return;
-                
             }
         }
         if (weekSelf.httpResponseDelegate && [weekSelf.httpResponseDelegate respondsToSelector:@selector(processHttpResponseData:status:message:data:)]) {
@@ -169,11 +167,11 @@
     }];
     [m_arrRequest addObject:task];
 }
-
 #pragma mark -- 各个业务模块
 
 - (void)getSmsCodeForRegisterCode:(NSString *)phoneNumber{
     NSString * nssActionValue = @"VETIFI-ATION";
+// 基地址 + 该业务的接口
     NSString * nssUrl = [NSString stringWithFormat:@"%@%@?",m_nssUrl, @"/service/note/noteObtain.do"];
     NSMutableDictionary *dicRequest = [[NSMutableDictionary alloc] init];
     [dicRequest setObject:nssActionValue forKey:@"action"];
